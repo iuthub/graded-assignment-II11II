@@ -2,7 +2,6 @@
  @extends('layouts.app')
 
 @section('content')  
-             
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -121,6 +120,7 @@
               <button type="submit"  class="addBtn">Add</button>
             </div>
         </form>
+        
         @if (count($tasks) > 0)
                         @foreach ($tasks as $task)
 
@@ -142,7 +142,9 @@
                             </div>
                           </li>
                         @endforeach
-        @endif
+@endif
+
+       
         </ul>
     </body>
 </html>
