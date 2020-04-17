@@ -131,7 +131,7 @@
                             <div class="action">
                             <a href="/task/edit/{{$task->id}}"><i class="fa fa-edit"></i></a>
                             {{ csrf_field() }}
-                            {{ method_field('PUT') }}
+                            {{ method_field('DELETE') }}
                             </div>
                             <div class="action">
                                 <a href="/task/{{ $task->id }}" ><i class="fa fa-trash-alt"></i></a> 

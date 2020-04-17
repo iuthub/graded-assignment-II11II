@@ -52,27 +52,32 @@ class TaskController extends Controller
             return redirect('/task');
      
     }  
-     public function editTask($id){
+     public function edit(Request $request,$id){
        
             $validator = Validator::make($request->all(), [
                 'editTask' => 'required|max:255|min:2',
-                'user_id' => 'required',
             ]);
             if ($validator->fails()) {
                 return redirect('/task')
                     ->withInput()
                     ->withErrors($validator);
             }
-            $task = new Task;
-
-            DB::table('tasks')
-            ->where('id', $id)
-            ->update(['task' => $request->editTask]);
-    
+         
+                Task::where('id',$id)->update(['task'=>$request->editTask]);
+            // DB::table('tasks')
+            // ->where('id', $id)
+            // ->update(['task' => $request->editTask]);
     
             return redirect('/task');
      
     }
+    public function editTask($id){
+     
+           return view('edit', [
+            'id' => $id
+        ]);
+    
+   }
    public function deleteTask ($id) {
         Task::findOrFail($id)->delete();
     

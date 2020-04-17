@@ -109,7 +109,8 @@
             {{ session('status') }}
         </div>
     @endif
-    <form action="/task/edit/{{$id}}" method="POST">
+    {{ csrf_field() }}
+    <form action="/task/{{$id}}/edit" method="POST">
              {{ csrf_field() }}
             <div id="myDIV" class="header">
               <h2>My To Do List</h2>
